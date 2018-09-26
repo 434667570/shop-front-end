@@ -1,0 +1,38 @@
+/*            最近商品列表          */
+.products-box{
+   display: flex;
+   flex-wrap: wrap;
+   padding: 0 20rpx 0;
+   justify-content: space-between; 
+}
+.product-item{
+   display: flex;
+   flex-direction: column;
+   box-sizing: border-box;
+   width: 49%;
+   height: 340rpx;
+   align-items: center;
+   background-color: #F5F6F5;
+   margin: 10rpx 0;
+   border-radius: 10rpx;
+}
+.product-item .image-content{
+   height: 70%;
+   width: 70%;
+}
+.image-content image{
+   width: 100%;
+   height: 100%;
+}
+.product-item .product-property{
+   height: 30%;
+   text-align: center; 
+}
+
+.product-property .product-name{
+   margin-top: 8rpx;
+   font-size: 12px;
+}
+.product-property .product-price{
+   font-size: 10px;
+}

@@ -1,0 +1,17 @@
+<view class='container'>
+   <view class='main-container'>
+      <view wx:if="{{orderId!=0}}" class='tab-box'>
+         <view  class="active">预定成功</view>
+      </view>
+      <view class='image-container'>
+         <image wx:if="{{weixin}}" src='{{weixinImage}}' mode='aspectFit' bindtap='preImage' data-src="{{weixinImage}}"></image>
+         <image wx:else src='{{zhifubaoImage}}' mode='aspectFit' bindtap='preImage' data-src="{{zhifubaoImage}}"></image>
+      </view>
+   </view>
+   <view wx:if="{{orderId!=0}}" class='orderId'>订单编号: {{orderId}}</view>
+   <view class='tips-container'>
+      <text>请点击二维码长按后保存/截屏之后扫描二维码或直接关注公众号 'WEI广金' 获取客服联系方式及订单进展，更多优惠活动，尽在WEI广金。</text>
+      
+   </view>
+   
+</view>

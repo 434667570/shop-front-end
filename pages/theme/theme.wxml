@@ -1,0 +1,12 @@
+<import src="../templates/product/product-list.wxml"/>
+
+<view class='container'>
+   <view class='theme-header'>
+      <image src='{{themeDetail.head_img.url}}'></image>
+   </view>
+   <view class='theme-main'>
+      <template is='product-list' data='{{products:themeDetail.products}}'></template>
+   </view>
+   
+</view>
+

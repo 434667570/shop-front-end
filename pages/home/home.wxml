@@ -1,0 +1,40 @@
+<import src="../templates/product/product-list.wxml" />
+
+<view class='container'>
+   <swiper indicator-dots='true' autoplay='true' class='swiper'>
+      
+      <swiper-item class='swiper-item'>
+         <navigator app-id="wx211bbbe334bfc222" target="miniProgram" open-type="navigate" version="release">
+            <image mode='aspectFill' src='../../imgs/495047881525471621.png' class='item-image'></image>
+         </navigator>
+      </swiper-item>
+
+      <block wx:for='{{bannerArr}}'>
+         <swiper-item class='swiper-item' data-id='{{item.key_word}}' bindtap="onBannerDetail">
+            <image src='{{item.img.url}}' class='item-image'></image>
+         </swiper-item>
+      </block>
+   </swiper>
+
+   <view class='home-main'>
+      <!-- <view class='home-main-themes'>
+         <view class='theme-topic'>精选主题</view>
+         <view class='theme-box'>
+            <view class='theme-item' data-id='{{themeArr[0].id}}' bindtap='onThemeDetail'>
+               <image src='{{themeArr[0].topic_img.url}}' ></image>
+            </view>
+            <view class='theme-item' data-id='{{themeArr[1].id}}' bindtap='onThemeDetail'>
+               <image src='{{themeArr[1].topic_img.url}}'></image>
+            </view>
+            <view class='theme-item big' data-id='{{themeArr[2].id}}' bindtap='onThemeDetail'>
+               <image src='{{themeArr[2].head_img.url}}'></image>
+            </view>
+         </view>
+      </view> -->
+      <view class='home-main-products'>
+         <view class='products-main-topic'>精选推介</view>
+         <template is='product-list' data='{{products:recentArr}}'>
+         </template>
+      </view>
+   </view>
+</view>

@@ -1,0 +1,20 @@
+<import src='../templates/product/product-list.wxml'/>
+
+<view class='container'>
+   <view class='category-content'>
+      <view class='category-list-box'>
+         <block wx:for="{{categoryList}}">
+            <view class="category-item {{item.id==currentCategory?'active':''}}" bindtap='onSelectCategory' data-id='{{item.id}}'>
+               <view class='category-name'>
+                  {{item.name}}
+               </view>
+            </view>
+         </block>
+      </view>
+      <view class='product-list-content'>
+         <scroll-view scroll-y class='product-list-box'>
+             <template is='product-list' data='{{products:productArr}}'></template> 
+         </scroll-view>
+      </view>
+   </view>
+</view>

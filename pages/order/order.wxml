@@ -1,0 +1,110 @@
+<form bindsubmit="formSubmit" report-submit="true">
+   <view class='container'>
+      <block wx:if="{{source=='my'}}">
+         <view class='order-info-content'>
+            <view class='order-info-box'>
+               <view class='info'>
+                  <view class='info-tips'>下单时间：</view>
+                  <view>{{orderData.create_time}}</view>
+               </view>
+               <view class='info'>
+                  <view class='info-tips'>订单编号：</view>
+                  <view>{{orderData.id}}</view>
+               </view>
+            </view>
+
+            <view class='pay-condition'>{{orderData.status==0?'待付款':'已付款'}}</view>
+         </view>
+      </block>
+
+
+      <view class='address-content'>
+
+         <block wx:if="{{addressData}}">
+            <view class='name-phone-content'>
+               <view>
+                  <image src='../../imgs/icon/user.png'></image>
+                  <view>{{addressData.name}}</view>
+               </view>
+               <view>
+                  <image src='../../imgs/icon/mobile.png'></image>
+                  <view>{{addressData.mobile}}</view>
+               </view>
+            </view>
+            <view class='address'>{{addressData.detail}}</view>
+         </block>
+
+         <block wx:else>
+            <view class='add-address-content' bindtap='onAddAddress'>
+               <image src='../../imgs/icon/add.png'></image>
+               <view>添加收货地址</view>
+            </view>
+         </block>
+      </view>
+
+      <view wx:if="{{source=='cart'}}" class='order-list'>
+      <view class='input-content'>
+            <input  type="text" name="note" placeholder="在此输入备注(如送货时间等)" />
+         </view>
+         <block wx:for="{{cartData}}">
+            <view class='order-container'>
+
+               <view class='product-iamge-content'>
+                  <image src='{{item.main_img_url}}' mode='aspectFit'></image>
+               </view>
+
+               <view class='right-content'>
+                  <view class='product-info-content'>
+                     <view>{{item.name}}</view>
+                     <view>x {{item.count}}</view>
+                  </view>
+                  <view class='item-price'>
+                     ¥ {{item.price}}
+                  </view>
+               </view>
+            </view>
+         </block>
+         
+      </view>
+
+      <view wx:else class='order-list'>
+         <view wx:if="{{orderData.note}}" class='input-content'>
+            <input type="text" name="note" value='{{orderData.note}}' disabled='true' />
+         </view>
+         <view wx:else class='gray-border'></view>
+         <block wx:for="{{orderData.products}}">
+            <view class='order-container'>
+
+               <view class='product-iamge-content'>
+                  <image src='{{item.main_img_url}}' mode='aspectFit'></image>
+               </view>
+
+               <view class='right-content'>
+                  <view class='product-info-content'>
+                     <view>{{item.name}}</view>
+                     <view>x {{item.pivot.count}}</view>
+                  </view>
+                  <view class='item-price'>
+                     ¥ {{item.price}}
+                  </view>
+               </view>
+            </view>
+         </block>
+
+      </view>
+
+
+
+      <view class='footer-content'>
+         <view class='footer-left-content'>
+            <view class='total-price'>合计：¥ {{totalPrice}}</view>
+         </view>
+         <view wx:if="{{source == 'my'}}" class='footer-right-content'>
+            <view>预定成功</view>
+         </view>
+         <button wx:else class='footer-right-content' formType="submit">
+            <view>确认预定</view>
+         </button>
+      </view>
+   </view>
+</form>

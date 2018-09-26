@@ -1,0 +1,59 @@
+<view class='container'>
+
+   <view class="fixed-btns-box" bindtap="onToCart">
+      <view class="fiexd-cart {{isShake?'animate':''}}">
+         <image src="../../imgs/icon/cart@top.png" ></image>
+         <view wx:if="{{cartTotalCounts>0}}">{{cartTotalCounts}}</view>
+      </view>
+   </view>
+
+   <!-- 头图 -->
+   <view class='header-image'>
+      <image src='{{productDetail.main_img_url}}' mode='aspectFit'></image>
+   </view>
+   <!-- 中间按钮 -->
+   <view class='btn-content'>
+      <view class='btn-content-box'>
+         <view class="count-box {{productDetail.stock>0?'':'disable'}}">
+            <picker disabled='{{productDetail.stock>0?false:true}}' bindchange="onPickerChange" range="{{countArr}}">
+               <view>
+                  <view class='count-tips'>数量</view>
+                  <view class='count-data'>{{selectCount}}</view>
+                  <image class='count-icon' src='../../imgs/icon/arrow@down.png' mode='aspectFit'></image>
+               </view>
+            </picker>
+         </view>
+         <view class='btn-border'></view>
+         <view class="cart-box {{productDetail.stock>0?'':'disable'}}"  bindtap='onAddingToCartTap'>
+            <view class='cart-tips'>加入购物车</view>
+            <image class='cart-icon' src='../../imgs/icon/cart.png' mode='aspectFit'></image>
+
+            <image id="small-top-img" class="small-top-img {{isFly?'animate':''}}"
+                       src="{{productDetail.main_img_url}}" mode="aspectFill" style="{{translateStyle}}"></image>
+
+         </view>
+      </view>
+   </view>
+   <!-- 商品信息 -->
+   <view class='product-info-box'>
+      <view class='info-stock'>{{productDetail.stock>0?'有货':'缺货'}} </view>
+      <view class='info-name'>{{productDetail.name}}</view>
+      <view  class='info-price'>¥ {{productDetail.price==0?'活动中,价格待公布':productDetail.price}}</view>
+   </view>
+
+   <!-- 灰色分界线 -->
+   <view class='gray-border'></view>
+
+   <!-- 商品详情 -->
+   <view class='product-detail-content'>
+      <view class='detail-topic-box'>
+         <view>商品详情</view>
+      </view>
+      <view class='detail-image-box'>
+         <block wx:for='{{productDetail.detail_img}}'>
+            <image mode='widthFix' src='{{item.img.url}}'></image>
+         </block>
+         <ad unit-id="adunit-22689dd11ae6bc15"></ad>
+      </view>
+   </view>
+</view>

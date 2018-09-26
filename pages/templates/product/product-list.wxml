@@ -1,0 +1,17 @@
+<template name='product-list'>
+   <view class='products-box'>
+      <block wx:for='{{products}}'>
+         <view class='product-item' data-id='{{item.id}}' bindtap='onProductDetail'>
+            <view class='image-content'>
+               <image src='{{item.main_img_url}}' mode='aspectFit'></image>
+            </view>
+            <view class='product-property'>
+               <view class='product-name'>{{item.name}}</view>
+               <!-- <view wx:if="{{}}"></view> -->
+               <view class='product-price'>¥ {{item.price}}</view>
+            </view>
+         </view>
+      </block>
+   </view>
+   
+</template>

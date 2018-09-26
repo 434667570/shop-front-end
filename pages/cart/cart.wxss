@@ -1,0 +1,141 @@
+.cart-list{
+   margin-bottom: 88rpx;  
+}
+.tips{
+   font-size: 16px;
+   color: #D5D5DB;
+   text-align: center;
+   margin-top: 400rpx;
+}
+/* 单个商品块 */
+.cart-container{
+   display: flex;
+   width: 100%;
+   height: 200rpx;
+   border-bottom: 4rpx solid #EDEDED;
+   
+}
+.circle-icon-content{
+   display: flex;
+   justify-content: center;
+   width: 10%;
+}
+.circle-icon-content image{
+   width: 44rpx;
+   height: 44rpx;
+   margin: auto 0;
+}
+
+.product-iamge-content{
+   width: 26%;
+   box-sizing: border-box; 
+   background-color: #EDEDED;
+   border: 14rpx solid #ffffff;
+}
+.product-iamge-content image{
+   width: 100%;
+   height: 100%;
+}
+
+.right-content{
+   display: flex;
+   flex-direction: column;
+   width: 64%;
+   box-sizing: border-box;
+   border: 14rpx solid #ffffff;
+   border-right: 30rpx solid #ffffff;
+   justify-content: space-between;
+}
+/* 商品信息 */
+.product-info-content{
+   display: flex;
+   width: 100%;
+   height: 48rpx;
+   justify-content: space-between;
+}
+.product-info-content view{
+   font-size: 14px;
+   line-height: 48rpx;
+}
+/* -+x按钮组 */
+.btn-content{
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
+}
+.btn-count-content{
+   display: flex;
+   width: 40%;
+   justify-content: space-between;
+}
+.btn-count-content view,.btn-cancel{
+   font-size: 16px;
+}
+.btn-count-content view{
+   width: 50rpx;
+}
+.btn-cancel{
+    width: 40rpx; 
+}
+.disabled{
+   color: #D5D5DB;
+}
+/* 下方固定下单按钮组 */
+.footer-content{
+   display: flex;
+   width: 100%;
+   height: 90rpx;
+   background-color: #AB956D;
+   position: fixed;
+   bottom: 0;
+   border-top: 4rpx solid #EDEDED;
+}
+.footer-left-content{
+   display: flex;
+   width: 50%;
+}
+.footer-circle-icon-content{
+   display: flex;
+   justify-content: center;
+   width: 20%;
+}
+.footer-circle-icon-content image{
+   width: 44rpx;
+   height: 44rpx;
+   margin: auto 0;
+}
+.footer-left-content .allSelect{
+   font-size: 16px;
+   color: #ffffff;
+   height: 99rpx;
+   line-height: 90rpx;
+}
+
+
+.footer-right-content{
+   display: flex;
+   width: 50%;
+    justify-content: space-around; 
+}
+.footer-right-content view{
+   font-size: 16px;
+   color: #ffffff;
+   height: 90rpx;
+   line-height: 90rpx;
+}
+.totalprice{
+   width: 40%;
+}
+.footer-right-content image{
+   margin: auto 0;
+   height: 42rpx;
+   width: 32rpx;
+}
+.white-border{
+   width: 4rpx;
+   height: 4rpx;
+   border-right: 4rpx dotted #ffffff;
+}
+
+
+

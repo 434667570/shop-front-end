@@ -1,0 +1,52 @@
+<view class='container'>
+   <view class='header-container'>
+      <view class='user-info'>
+         <open-data type="userAvatarUrl" class="head-img"></open-data>
+         <open-data type="userNickName" class="username"></open-data>
+      </view>
+      <view class='about' bindtap='connectWe'>
+         <image src='../../imgs/icon/about.png'></image>
+         <view>联系客服</view>
+      </view>
+   </view>
+
+   <view class='address-content' bindtap='onToAddress'>
+      地址管理
+      <image src='../../imgs/icon/arrow@right.png'></image>
+   </view>
+
+   <view class='border'></view>
+
+   <view class='myorder'>我的订单</view>
+
+   <view class='order-list'>
+      <block wx:for="{{orderData}}">
+
+         <view class='order-no'>
+            订单编号：{{item.id}}
+            <view class='no-border'></view>
+         </view>
+         <view class='order-container' bindtap='onToOrderDetail' data-orderId="{{item.id}}">
+
+            <view class='product-iamge-content'>
+               <image src='{{item.products[0].main_img_url}}' mode='aspectFit'></image>
+            </view>
+
+            <view class='right-content'>
+               <view class='product-info-content'>
+                  <view>{{item.products[0].name}} {{item.products.length>1?'等':''}}</view>
+                  <view>{{item.status==1?'已付款':'待付款'}}</view>
+               </view>
+               <view class='product-counts'>
+                  {{item.products.length}} 件商品
+               </view>
+            </view>
+         </view>
+         <view class='pay-content'>
+            <view>商品总价：¥{{item.total_price}}</view>
+            <view class='pay-button' data-id="{{item.id}}" bindtap='cancelOrder'>取消预定</view>
+         </view>
+         <view class='border'></view>
+      </block>
+   </view>
+</view>

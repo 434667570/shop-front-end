@@ -1,0 +1,20 @@
+<view class='container'>
+   <form bindsubmit="formSubmit">
+      <view class='section'>
+         <input name="name" placeholder="联系人" value='{{data.name}}'/>
+      </view>
+      <view class='section'>
+         <input name="phone" type='number' maxlength='11' placeholder="手机号码" value='{{data.mobile}}'/>
+      </view>
+      <view class='section'>
+         <input name="address" placeholder="请输入宿舍楼号#房间号 如:17A#318" value='{{data.detail}}'/>
+      </view>
+       
+      <view class='tips'>
+         <view>注意: 宿舍楼号必须按宿舍楼号#房间号填写，北苑宿舍分AB栋需注明，如：17A#318，南苑宿舍填写最新的宿舍楼号，不分AB栋，如9#203</view>
+      </view>
+      <view class="btn-area">
+         <button formType="submit">保存</button>
+      </view>
+   </form>
+</view>

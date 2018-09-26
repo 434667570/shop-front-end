@@ -1,0 +1,57 @@
+<view class='container'>
+   <view wx:if="{{cartData == ''}}" class='tips'>本就空无物, 何处惹尘埃</view>
+   <view class='cart-list'>
+      <block wx:for="{{cartData}}">
+         <view class='cart-container'>
+
+            <view class='circle-icon-content' bindtap='onSelectProduct' data-status='{{item.status}}' data-id='{{item.id}}'>
+               <image wx:if="{{item.status}}" src='../../imgs/icon/circle@selected.png'></image>
+               <image wx:else src='../../imgs/icon/circle@noselected.png'></image>
+            </view>
+
+            <view class='product-iamge-content' bindtap='onToProductDetail' data-id='{{item.id}}'>
+               <image src='{{item.main_img_url}}' mode='aspectFit'></image>
+            </view>
+
+            <view class='right-content'>
+               <view class='product-info-content' bindtap='onToProductDetail' data-id='{{item.id}}'>
+                  <view>{{item.name}}</view>
+                  <view>¥ {{item.price}}</view>
+               </view>
+
+               <view class='btn-content'>
+                  <view class='btn-count-content'>
+                     <view bindtap='onChangeCount' data-id="{{item.id}}" data-operation='sub' data-count='{{item.count}}' class="{{item.count==1?'disabled':''}}">-</view>
+
+                     <view>{{item.count}}</view>
+
+                     <view bindtap='onChangeCount' data-id="{{item.id}}" data-operation='add'>+</view>
+                  </view>
+                  <view class='btn-cancel' bindtap='onCancel' data-id="{{item.id}}">x</view>
+               </view>
+            </view>
+         </view>
+      </block>
+   </view>
+
+
+   <view wx:if="{{cartData != ''}}" class='footer-content'>
+
+      <view class='footer-left-content' bindtap='onAllSelect'>
+         <view class='footer-circle-icon-content'>
+            <image wx:if="{{isAllSelect}}" src='../../imgs/icon/all.png'></image>
+            <image wx:else src='../../imgs/icon/all@selected.png'></image>
+         </view>
+         <view class='allSelect' >全选({{totalCount}})</view>
+      </view>
+
+      <view class='footer-right-content' bindtap='onOrder'>
+         <view class='white-border'></view>
+         <!-- <view>暂时无法预订</view> -->
+         <view>预定</view>
+         <view class='totalprice'>¥ {{totalPrice}}</view>
+         <image src='../../imgs/icon/arrow.png'></image> 
+      </view>
+
+   </view>
+</view>
